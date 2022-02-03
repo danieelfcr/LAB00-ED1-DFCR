@@ -1,4 +1,5 @@
-﻿using LAB00_DFCR1117121.Models;
+﻿using LAB00_DFCR1117121.Helpers;
+using LAB00_DFCR1117121.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,8 +14,7 @@ namespace LAB00_DFCR1117121.Controllers
         // GET: ClientsController
         public ActionResult Index()
         {
-            var list = new List<Client>();
-            return View(list);  //Se utiliza /clients
+            return View(DataManagement.Instance.clientList);  //Se utiliza /clients
         }
 
         // GET: ClientsController/Details/5
@@ -36,6 +36,13 @@ namespace LAB00_DFCR1117121.Controllers
         {
             try
             {
+                Client.Save(new Client
+                {
+                    Name = collection["Name"],
+                    LastName = collection["Last Name"],
+                    TelNumber = long.Parse(collection["Number"]),
+                    Description = collection["Description"],
+                });
                 return RedirectToAction(nameof(Index));
             }
             catch
