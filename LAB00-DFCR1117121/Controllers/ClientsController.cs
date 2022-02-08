@@ -39,8 +39,8 @@ namespace LAB00_DFCR1117121.Controllers
                 Client.Save(new Client
                 {
                     Name = collection["Name"],
-                    LastName = collection["Last Name"],
-                    TelNumber = long.Parse(collection["Number"]),
+                    LastName = collection["LastName"],
+                    TelNumber = long.Parse(collection["TelNumber"]),
                     Description = collection["Description"],
                 });
                 return RedirectToAction(nameof(Index));
