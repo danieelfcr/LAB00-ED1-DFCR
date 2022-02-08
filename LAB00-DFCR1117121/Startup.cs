@@ -46,7 +46,7 @@ namespace LAB00_DFCR1117121
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=CLients}/{action=Index}/{id?}");  //Controller=Clients para que la página inicie en ese punto
             });
         }
     }
