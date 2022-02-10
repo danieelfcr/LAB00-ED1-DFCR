@@ -29,10 +29,15 @@ namespace LAB00_DFCR1117121.Controllers
             return View(new Client());
         }
 
+        public ActionResult SortByName()    //Action result al presionar el botón
+        {
+            return View();
+        }
+
         // POST: ClientsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection, List<Client> clientList)
         {
             try
             {
@@ -43,6 +48,7 @@ namespace LAB00_DFCR1117121.Controllers
                     TelNumber = long.Parse(collection["TelNumber"]),
                     Description = collection["Description"],
                 });
+                //DataManagement.SortByName(clientList);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -50,6 +56,8 @@ namespace LAB00_DFCR1117121.Controllers
                 return View();
             }
         }
+
+
 
         // GET: ClientsController/Edit/5
         public ActionResult Edit(int id)
