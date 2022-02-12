@@ -31,7 +31,14 @@ namespace LAB00_DFCR1117121.Controllers
 
         public ActionResult SortByName()    //Action result al presionar el botón
         {
-            return View();
+            Client.sortName();
+            return View(DataManagement.Instance.clientList);
+        }
+
+        public ActionResult SortByLastName()
+        {
+            Client.sortLastName();
+            return View(DataManagement.Instance.clientList);
         }
 
         // POST: ClientsController/Create
