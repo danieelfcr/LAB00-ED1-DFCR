@@ -27,11 +27,7 @@ namespace LAB00_DFCR1117121.Helpers
           
         };
 
-        public static void SortByName(List<Client> clientList)
-        {
-            IEnumerable<Client> SortedListClient = clientList.OrderBy(x => x.Name);
-            
-        }
+     
 
     }
 }
